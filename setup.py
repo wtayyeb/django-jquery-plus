@@ -11,7 +11,7 @@ except IOError:
 
 setup(
     name			='django-jquery-plus',
-    version			='1.11.1',
+    version			='1.11.1.1',
     #url			="http://github.com/wtayyeb/django-jquery-plus",
     description		='jQuery packaged in an handy django app to speed up new applications and deployment.',
     long_description=long_description,
