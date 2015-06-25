@@ -33,5 +33,5 @@ setup(
     ],
     packages		=find_packages(),
     package_data	={'jquery': ['static/js/jquery/*.js', ]},
-	install_requires=['django-autoconf', ],
+	install_requires=['django-appconf', ],
 )
