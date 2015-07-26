@@ -14,7 +14,7 @@ class _AppConf(AppConf):
 	CDN					 = False
 	DEFAULT_CDN			 = 'http://code.jquery.com/jquery-%(version)s.min.js'
 
-	STATIC_JS			 = '%(static_url)sjs/jquery/jquery-%(version)s.min.js'
+	STATIC_JS			 = '%(static_url)sjquery/jquery-%(version)s.min.js'
 
 	SCRIPT_TAG			 = '<script type="text/javascript" src="%(url)s"></script>'
 
