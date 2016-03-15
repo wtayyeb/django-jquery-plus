@@ -1,25 +1,36 @@
 
-from setuptools import setup, find_packages
-from os.path import join, dirname
+import os
+import sys
 
-try:
-    f = open(join(dirname(__file__), 'LONG.rst'))
-    long_description = f.read().strip()
-    f.close()
-except IOError:
-    long_description = None
+from setuptools import setup, find_packages
+
+version = __import__('jquery').__version__
+
+
+if sys.argv[-1] == 'publish':
+    os.system('python setup.py sdist upload')
+    os.system('python setup.py bdist_wheel upload')
+    sys.exit()
+
+
+if sys.argv[-1] == 'tag':
+    os.system("git tag -a %s -m 'version %s'" % (version, version))
+    os.system("git push --tags")
+    sys.exit()
+
 
 setup(
-    name			='django-jquery-plus',
-    version			='1.11.1.3',
-    url				="http://github.com/wtayyeb/django-jquery-plus",
+    name			='static-jquery',
+    version			=version,
+    url				="https://github.com/wtayyeb/static-jquery",
     description		='jQuery packaged in an handy django app to speed up new applications and deployment.',
-    long_description=long_description,
     author			='wtayyeb',
     author_email	='wtayyeb@gmail.com',
     license			='MIT',
     keywords		='django jquery staticfiles templatetags',
-    platforms		='any',
+    packages		=find_packages(),
+    package_data	={'jquery': ['static/jquery/*.js', ]},
+	install_requires=['django-appconf', ],
     classifiers		=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
@@ -31,7 +42,4 @@ setup(
         'Programming Language :: Python',
         'Topic :: Utilities',
     ],
-    packages		=find_packages(),
-    package_data	={'jquery': ['static/jquery/*.js', ]},
-	install_requires=['django-appconf', ],
 )

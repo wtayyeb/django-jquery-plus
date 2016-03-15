@@ -1,26 +1,29 @@
-Django jQuery Plus
-==================
+Static jQuery
+=============
 
 Requirements
 ------------
 
-`django-appconf`
+django-appconf
 
-`Django <https://www.djangoproject.com/>`_ 1.3 or later
+`Django`_ 1.3 or later
 
 Installation
 ------------
 
 ::
 
-    $ pip install django-jquery-plus
+    $ pip install static-jquery
 
+    $ pip install static-jquery==1.11.2
 
 Setup
 -----
 
-Just add ``'django.contrib.staticfiles'`` and ``'jquery'`` to INSTALLED_APPS in
-your settings.py::
+Just add ``'django.contrib.staticfiles'`` and ``'jquery'`` to
+INSTALLED\_APPS in your settings.py:
+
+::
 
     INSTALLED_APPS = (
         # ...
@@ -31,38 +34,15 @@ your settings.py::
         # ...
     )
 
-Refer to Django `static files <https://docs.djangoproject.com/en/dev/howto/static-files/>`_
-documentation to configure and deploy static files.
-
+Refer to Django `static files`_ documentation to configure and deploy
+static files.
 
 Usage
 -----
 
 You can refer to jquery in your template with::
-	{% load jquery %}
-	{% jquery_js %}
-	{% jquery_js 1.7.2 %}
+    {% load jquery %} {% jquery\_js %} {% jquery\_js 1.7.2 %}
 
-Admin template customization::
+.. _Django: https://www.djangoproject.com/
+.. _static files: https://docs.djangoproject.com/en/dev/howto/static-files/
 
-    {% extends "admin/base_site.html" %}
-
-    {% block extrahead %}
-		{% load jquery %}
-		{% jquery_js %}
-		{% jquery_js 1.7.2 %}
-    {% endblock %}
-
-
-Custom widget::
-	NOT IMPLEMENTED YET
-
-	ABSTRACT:
-    class MyWidget(forms.TextInput):
-        class Media:
-            js = ('js/jquery.js',)
-
-        def render(self, name, value, attrs=None):
-            html = super(MyWidget, self).render(name, value, attrs=attrs)
-            # ...
-            return html
