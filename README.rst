@@ -40,10 +40,15 @@ static files.
 Usage
 -----
 
-You can refer to jquery in your template with::
+You can refer to jquery in your template with:
+
+::
+
     {% load jquery %}
-	{% jquery\_js %}
-	{% jquery\_js 1.11.3 %}
+    {% jquery_js %}
+    or
+    {% jquery_js 1.11.3 %}
+
 
 .. _Django: https://www.djangoproject.com/
 .. _static files: https://docs.djangoproject.com/en/dev/howto/static-files/
