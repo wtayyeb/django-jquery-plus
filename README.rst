@@ -4,9 +4,9 @@ Static jQuery
 Requirements
 ------------
 
-django-appconf
+`django-appconf`_
 
-`Django`_ 1.3 or later
+`django`_ 1.3 or later
 
 Installation
 ------------
@@ -14,8 +14,7 @@ Installation
 ::
 
     $ pip install static-jquery
-
-    $ pip install static-jquery==1.11.3
+    $ pip install static-jquery==%(version)s
 
 Setup
 -----
@@ -27,10 +26,8 @@ INSTALLED\_APPS in your settings.py:
 
     INSTALLED_APPS = (
         # ...
-
         'django.contrib.staticfiles',
         'jquery',
-
         # ...
     )
 
@@ -44,12 +41,13 @@ You can refer to jquery in your template with:
 
 ::
 
-    {% load jquery %}
-    {% jquery_js %}
+    {%% load jquery %%}
+    {%% jquery_js %%}
     or
-    {% jquery_js 1.11.3 %}
+    {%% jquery_js %(version)s %%}
 
 
-.. _Django: https://www.djangoproject.com/
+.. _django: https://www.djangoproject.com/
+.. _django-appconf: https://pypi.python.org/pypi/django-appconf/
 .. _static files: https://docs.djangoproject.com/en/dev/howto/static-files/
 
