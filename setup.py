@@ -16,11 +16,18 @@ if sys.argv[-1] == 'publish':
     sys.exit()
 
 
+def get_readme(version):
+    with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as fp:
+        readme = fp.read()
+    return readme % {'version': version}
+
+
 setup(
     name='static-jquery',
     version=version,
     url="https://github.com/wtayyeb/static-jquery",
     description='jQuery packaged in an handy django app to speed up new applications and deployment.',
+    long_description=get_readme(version),
     author='wtayyeb',
     author_email='wtayyeb@gmail.com',
     license='MIT',
