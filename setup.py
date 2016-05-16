@@ -34,6 +34,19 @@ setup(
     keywords='django jquery staticfiles templatetags',
     packages=find_packages(),
     install_requires=['django-appconf', ],
+    package_data={
+        # for each package
+        '': [
+            'static/*.*',
+            'static/*/*.*',
+            'static/*/*/*.*',
+            'static/*/*/*/*.*',
+            'static/*/*/*/*/*.*',
+            'static/*/*/*/*/*/*.*',
+            'static/*/*/*/*/*/*/*.*',
+        ],
+    },
+    include_package_data=True,
     zip_safe=False,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
