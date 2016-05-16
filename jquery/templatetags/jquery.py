@@ -5,14 +5,14 @@ from django import template
 from django.conf import settings
 from django.template.base import TextNode
 
-from .. import __version__
+from .. import jq_version
 
 
 register		 = template.Library()
 
 
 class _AppConf(AppConf):
-	VERSION				 = __version__
+	VERSION				 = jq_version
 	CDN					 = False
 	DEFAULT_CDN			 = 'http://code.jquery.com/jquery-%(version)s.min.js'
 
